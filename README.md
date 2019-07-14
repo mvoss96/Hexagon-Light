@@ -19,9 +19,9 @@
 >responsive web UI:  currently without any live synchronization when the web UI is opend on multiple devices at the same time (GET requests are kept to a minimum to not overwhelm the ESP)
 ![responsive web UI](webui.jpg)
 
-![photo](photo2.jpg)
+>![photo2](photo2.jpg)
 
-![photo](photo1.jpg)
+>![photo1](photo1.jpg)
 
 ## License
 
