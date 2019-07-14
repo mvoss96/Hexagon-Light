@@ -1,0 +1,232 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: normal;
+    src: url("Montserrat-Medium.ttf")format('truetype');
+}
+
+html {
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+header {
+    height: 5%;
+    text-align: left;
+}
+
+body {
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-style: normal;
+    height: 100%;
+    background-color: lightgrey;
+}
+
+ul {
+    padding: 0px 25px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.credit-bar {
+    width: 100%;
+}
+
+ul a {
+    color: white;
+}
+
+a {
+    color: inherit;
+}
+
+footer {
+    height: 5%;
+    font-size: 0.6em;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #707070
+}
+
+.container {
+    position: relative;
+    font-size: 12px;
+    height: 100%;
+    background-color: white;
+    margin: 0 auto;
+    box-shadow: 10px 20px 25px 1px rgba(0, 0, 0, 0.527);
+}
+
+.status-screen {
+    position: relative;
+    top: 50%;
+    text-align: center;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.logo {
+    padding: 12px 12px 0px;
+}
+
+.power-container {
+    width: 100%;
+    margin: 0px 25px;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.25em;
+}
+
+.power-container p {
+    width: 100%;
+}
+
+.toggle-wrapper div {
+    position: relative;
+    background-color: #F1C40F;
+}
+
+.main-image {
+    width: 100%;
+}
+
+.slide-container {
+    width: 100%;
+    margin: 0px 25px;
+    height: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+    font-size: 1.25em;
+}
+
+.status-container {
+    height: 55%;
+}
+
+.ip {
+    margin-top: 10px;
+}
+
+.grey-box {
+    height: 35%;
+    bottom: 0;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: space-around;
+    background-color: #707070
+}
+
+#main-logo {
+    padding: 10px;
+    width: 122px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.powerbutton {
+    margin: 0 auto;
+    cursor: pointer;
+    background-color: #c8c8c8;
+    width: 122px;
+    height: 122px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.322);
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+.powerbutton:active {
+    background-color: #dddbdb;
+    transform: scale(1.1);
+}
+
+.powerbutton:focus{
+    outline:0;
+}
+
+.slider {
+    flex: 1 1 100%;
+    -webkit-appearance: none;
+    /* Override default CSS styles */
+    appearance: none;
+    height: 9px;
+    /* Specified height */
+    border-radius: 5px;
+    /* Grey background */
+    outline: none;
+    /* Remove outline */
+}
+
+#br-range {
+    background-image: linear-gradient(to right, #747474, #E8E8E8);
+}
+
+#color-range {
+    background-image: linear-gradient(to right, #EAF9F9, #F5D141);
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    /* Override default look */
+    appearance: none;
+    width: 22px;
+    /* Set a specific slider handle width */
+    height: 22px;
+    border: none;
+    /* Slider handle height */
+    border-radius: 50%;
+    background: #F39C12;
+    cursor: pointer;
+    /* Green background */
+}
+
+.slider::-webkit-slider-thumb:active{
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 18px;
+    /* Set a specific slider handle width */
+    height: 18px;
+    border: none;
+    /* Slider handle height */
+    border-radius: 50%;
+    background: #F39C12;
+    cursor: pointer;
+    /* Green background */
+}
+
+
+#br-range::-webkit-slider-thumb {
+    background: #F1C40F;
+}
+
+.off {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
+@media only screen and (min-width: 768px) {
+    .container {
+        margin: 0 auto;
+        width: 768px;
+        overflow: hidden;
+    }
+}

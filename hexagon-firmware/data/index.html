@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hexagon Light</title>
+    <link type="text/css" rel="stylesheet" href="style/style.css">
+</head>
+
+<body ontouchstart="">
+    <div class="container">
+        <header>
+            <a href="https://git.io/fjiiO" draggable="false">
+                <img class="logo" draggable="false" src="img/logo.svg" alt="Hexagon Logo">
+            </a>
+        </header>
+        <section class=status-container>
+            <div class=status-screen>
+                <button class="powerbutton"><img src="img/lightbulb.svg" draggable="false" class="off" id="main-logo"
+                        alt=""></button>
+                <p class="ip"></p>
+            </div>
+        </section>
+        <div class="grey-box">
+            <div class="power-container">
+                <p>Power</p>
+                <span id="power-value">?</span>
+            </div>
+            <div class="slide-container">
+                <label for="br-range" class="value-label">Brightness</label>
+                <div class="value-box" id="br-value">?</div>
+                <input type="range" min="1" max="100" value="50" class="slider" id="br-range">
+            </div>
+            <div class="slide-container">
+                <label for="color-range" class="value-label">Color</label>
+                <div class="value-box" id="color-value">?</div>
+                <input type="range" min="1" max="100" value="50" class="slider" id="color-range">
+            </div>
+        </div>
+        <footer>
+            <ul class="credit-bar">
+                <li><a href="https://git.io/fjiiO">HEXAGON LIGHT by Marcus Voß<br>git.io/fjiiO</a></li>
+                <li><a href="http://www.iconarchive.com/show/small-n-flat-icons-by-paomedia/light-bulb-icon.html">Bulb,
+                        light icon by Paomedia<br>(CC BY 3.0)</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script>
+        var powerStatus = false;
+        document.addEventListener('DOMContentLoaded', function () {
+            updatePower()
+            updateBrightness()
+            updateColor()
+            /*
+            setInterval(() => {
+                updatePower()
+                updateBrightness()
+                updateColor()
+            }, 1000);
+            */
+            let brSlider = document.getElementById("br-range")
+            brSlider.onchange = brightnessOnChange
+            let colSlider = document.getElementById("color-range")
+            colSlider.onchange = colorOnChange
+            let mainLogo = document.getElementById("main-logo")
+            let powerValue = document.getElementById("power-value")
+            mainLogo.addEventListener("click", togglePower)
+            powerValue.addEventListener("click", togglePower)
+        }, false);
+
+        function togglePower() {
+            fetch("/power", {
+                method: "POST",
+                body: (powerStatus) ? "OFF" : "ON",
+                headers: { "Content-type": "text/plain" }
+            })
+            updatePower()
+        }
+
+        function updatePower() {
+            let powerValue = document.getElementById("power-value")
+            let mainLogo = document.getElementById("main-logo")
+            fetch("/power").then(function (response) {
+                response.text().then(function (text) {
+                    console.log("received power'" + text + "'")
+                    switch (text) {
+                        case "ON":
+                            powerValue.innerHTML = "ON"
+                            mainLogo.classList = "on"
+                            powerStatus = true;
+                            break;
+                        case "OFF":
+                            powerValue.innerHTML = "OFF"
+                            mainLogo.classList = "off"
+                            powerStatus = false;
+                            break;
+                        default:
+                            console.log("received unknown: '" + text + "'")
+                            powerValue.innerHTML = "ERROR"
+                            mainLogo.classList = "off"
+                            powerStatus = false;
+                            break;
+                    }
+                })
+            })
+        }
+
+
+        function updateBrightness() {
+            let brValue = document.getElementById("br-value")
+            let brRange = document.getElementById("br-range")
+            fetch("/brightness").then(function (response) {
+                response.text().then(function (text) {
+                    console.log("received brightness'" + text + "'")
+                    brValue.innerHTML = text + "%";
+                    brRange.value = parseInt(text);
+                })
+            })
+        }
+
+        function updateColor() {
+            let colorValue = document.getElementById("color-value")
+            let colorRange = document.getElementById("color-range")
+            fetch("/color").then(function (response) {
+                response.text().then(function (text) {
+                    console.log("received color'" + text + "'")
+                    colorValue.innerHTML = text + "%";
+                    colorRange.value = parseInt(text);
+                })
+            })
+        }
+
+        function colorOnChange() {
+            let colValue = document.getElementById("color-value");
+            fetch("/color", {
+                method: "POST",
+                body: this.value,
+                headers: { "Content-type": "text/plain" }
+            })
+            updateColor();
+        }
+
+        function brightnessOnChange() {
+            let brValue = document.getElementById("br-value")  
+            fetch("/brightness", {
+                method: "POST",
+                body: this.value,
+                headers: { "Content-type": "text/plain" }
+            })
+            updateBrightness();
+        }
+    </script>
+</body>
+
+</html>
