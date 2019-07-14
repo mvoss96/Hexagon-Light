@@ -21,7 +21,7 @@
 
 >![photo2](photo2.jpg)
 
->![photo1](photo1.jpg)
+>![photo1](photo.jpg)
 
 ## License
 
