@@ -8,7 +8,7 @@
 ## Photos
 ![photo2](photo2.jpg)
 ![photo1](photo.jpg)
->More photos can be found on my <a href ="https://www.thingiverse.com/thing:3785919">thingverse page<a/>
+>More photos can be found on my <a href ="https://www.thingiverse.com/thing:3785919">thingiverse page<a/>
 
 ## Responsive Web UI
 ![responsive web UI](webui.jpg)
@@ -16,7 +16,7 @@
 
 ## Assembly
 ![assembly](assembly.png)
->The 3D-printable files can be found on <a href="https://www.thingiverse.com/thing:3785919">thingverse<a/>
+>The 3D-printable files can be found on <a href="https://www.thingiverse.com/thing:3785919">thingiverse<a/>
 
 ## Installation
 - upload the web UI files to the ESP32 filesystem
