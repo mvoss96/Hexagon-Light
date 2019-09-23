@@ -7,7 +7,6 @@
 
 ## Photos
 ![photo2](photo2.jpg)
-![photo1](photo.jpg)
 >More photos can be found on my <a href ="https://www.thingiverse.com/thing:3785919">thingiverse page<a/>
 
 ## Responsive Web UI
